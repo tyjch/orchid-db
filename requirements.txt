@@ -1,0 +1,5 @@
+python-dotenv==1.1.0
+pyodbc==4.0.39
+pandas==2.1.1
+sqlalchemy==2.0.23
+loguru

@@ -1,0 +1,181 @@
+
+orchids:
+  description: Just one family for orchids
+  families:
+    - Orchidaceae
+
+carnivorous_plants:
+  description: "Families containing carnivorous (insectivorous) plants"
+  families:
+    - Droseraceae        # Sundews, Venus flytraps, Waterwheel plants
+    - Nepenthaceae       # Tropical pitcher plants
+    - Sarraceniaceae     # North/South American pitcher plants  
+    - Lentibulariaceae   # Bladderworts, butterworts, corkscrew plants
+    - Cephalotaceae      # Albany pitcher plant
+    - Drosophyllaceae    # Portuguese sundew
+    - Byblidaceae        # Rainbow plants
+    - Roridulaceae       # Roridula (sticky plants)
+    - Dioncophyllaceae   # West African carnivorous plants
+    - Plantaginaceae     # Contains Philcoxia
+    - Tofieldiaceae      # Contains Triantha occidentalis
+    - Martyniaceae       # Borderline carnivorous
+    - Stylidiaceae       # Trigger plants (borderline)
+    - Bromeliaceae       # Some carnivorous bromeliads
+
+ferns_and_allies:
+  description: "Fern families and lycophytes (PPG I classification)"
+  families:
+    # Lycophytes (fern allies)
+    - Lycopodiaceae      # Club mosses
+    - Selaginellaceae    # Spike mosses
+    - Isoetaceae         # Quillworts
+    
+    # Horsetails
+    - Equisetaceae       # Horsetails
+    
+    # Eusporangiate ferns
+    - Ophioglossaceae    # Adder's tongues, moonworts, grape ferns
+    - Marattiaceae       # Giant ferns
+    
+    # Leptosporangiate ferns
+    - Osmundaceae        # Royal ferns
+    - Gleicheniaceae     # Forked ferns
+    - Schizaeaceae       # Curly grass ferns
+    - Marsileaceae       # Water ferns
+    - Salviniaceae       # Floating ferns
+    - Cyatheaceae        # Tree ferns
+    - Dicksoniaceae      # Tree ferns
+    - Blechnaceae        # Hard ferns
+    - Dryopteridaceae    # Wood ferns (largest family)
+    - Polypodiaceae      # Polypody ferns
+    - Pteridaceae        # Brake ferns
+    - Aspleniaceae       # Spleenworts
+    - Thelypteridaceae   # Marsh ferns
+    - Athyriaceae        # Lady ferns
+    - Onocleaceae        # Sensitive ferns
+    - Dennstaedtiaceae   # Bracken family
+    - Lindsaeaceae       # Lindsay ferns
+    - Davalliaceae       # Rabbit's foot ferns
+    - Nephrolepidaceae   # Sword ferns
+    - Oleandraceae       # Oleander ferns
+
+geophytes:
+  description: "Families containing plants with underground storage organs (bulbs, corms, tubers, rhizomes)"
+  families:
+    # Major bulb families
+    - Amaryllidaceae     # Daffodils, amaryllis, alliums
+    - Liliaceae          # True lilies, tulips (traditional sense)
+    - Iridaceae          # Iris, crocus, gladiolus, freesia
+    - Alliaceae          # Onions, garlic (some systems)
+    - Asparagaceae       # Hyacinths, muscari, ornithogalum
+    - Colchicaceae       # Autumn crocus, meadow saffron
+    - Xanthorrhoeaceae   # Some bulbous genera
+    - Hypoxidaceae       # Star grass
+    - Ixioliriaceae      # Ixiolirion
+    - Tecophilaeaceae    # Chilean blue crocus
+    - Cyclanthaceae      # Some geophytic species
+    
+    # Tuberous families
+    - Dioscoreaceae      # Yams (tuberous)
+    - Araceae            # Aroids - caladium, colocasia, arisaema
+    
+    # Rhizomatous families
+    - Cannaceae          # Canna lilies (rhizomatous)
+    - Zingiberaceae      # Gingers (rhizomatous)
+    - Costaceae          # Spiral gingers (rhizomatous)
+    - Marantaceae        # Prayer plants (rhizomatous)
+
+aquatic_and_wetland:
+  description: "Families containing aquatic and wetland plants"
+  families:
+    # Water lilies and lotus
+    - Nymphaeaceae       # True water lilies
+    - Nelumbonaceae      # Sacred lotus, American lotus
+    - Cabombaceae        # Fanwort (sometimes included in Nymphaeaceae)
+    
+    # Major freshwater aquatic families (Alismatales)
+    - Potamogetonaceae   # Pondweeds - major freshwater family
+    - Hydrocharitaceae   # Tape grasses, elodea, vallisneria, hydrilla
+    - Alismataceae       # Water plantains, arrowheads, sagittaria
+    - Butomaceae         # Flowering rush
+    - Aponogetonaceae    # Cape pondweeds, aquarium plants
+    - Juncaginaceae      # Arrow grasses
+    - Scheuchzeriaceae   # Rannoch rush
+    - Maundiaceae        # Maundia (Australian endemic)
+    
+    # Seagrass families (marine)
+    - Zosteraceae        # Eelgrasses - major seagrass family
+    - Posidoniaceae      # Posidonia seagrasses
+    - Cymodoceaceae      # Manatee grasses and related seagrasses
+    - Ruppiaceae         # Widgeon grasses (brackish to marine)
+    
+    # Semi-aquatic and wetland families
+    - Typhaceae          # Cattails, bulrushes
+    - Sparganiaceae      # Bur-reeds
+    - Pontederiaceae     # Water hyacinths, pickerel rush
+    - Haloragaceae       # Water milfoils
+    - Ceratophyllaceae   # Hornworts
+    - Callitrichaceae    # Water starworts
+    - Hippuridaceae      # Mare's tail
+    - Elatinaceae        # Waterworts
+    - Najadaceae         # Water nymphs
+    - Zannichelliaceae   # Horned pondweeds
+    
+    # Floating and emergent families
+    - Lemnaceae          # Duckweeds
+    - Xyridaceae         # Yellow-eyed grasses (wetland)
+    - Eriocaulaceae      # Pipeworts
+    - Mayacaceae         # Bog moss
+    - Commelinaceae      # Some aquatic dayflowers
+    - Hydroleaceae       # Waterpods
+    - Menyanthaceae      # Bogbeans, floating hearts
+    - Limnanthaceae      # Meadowfoams
+    
+    # Families with some aquatic members
+    - Ranunculaceae      # Water crowfoots, some aquatic buttercups
+    - Brassicaceae       # Watercresses
+    - Campanulaceae      # Some aquatic bellflowers
+
+# They belong to different phyla: Rhodophyta (red), Ochrophyta (brown), Chlorophyta (green)
+macroalgae:
+  description: "Major macroalgae groups (seaweeds) - unlikely to be in WFO database"
+  note: "These are not vascular plants and probably won't be found in World Flora Online"
+  groups:
+    # Brown algae (Phylum Ochrophyta, Class Phaeophyceae)
+    brown_algae:
+      - Fucaceae         # Wracks (Fucus spp.)
+      - Laminariaceae    # True kelps (Laminaria, Saccharina)
+      - Sargassaceae     # Sargassum, Turbinaria
+      - Alariaceae       # Winged kelps
+      - Lessoniaceae     # Giant kelps
+      - Chordaceae       # Sea spaghetti
+      - Dictyotaceae     # Dictyota, Padina
+      
+    # Red algae (Phylum Rhodophyta)
+    red_algae:
+      - Gigartinaceae    # Irish moss (Chondrus)
+      - Gracilariaceae   # Gracilaria (agar)
+      - Palmariaceae     # Dulse (Palmaria)
+      - Bangiaceae       # Porphyra (nori)
+      - Corallinaceae    # Coralline algae
+      - Gelidiaceae      # Gelidium (agar)
+      
+    # Green algae (Phylum Chlorophyta)
+    green_algae:
+      - Ulvaceae         # Sea lettuce (Ulva)
+      - Cladophoraceae   # Cladophora
+      - Bryopsidaceae    # Bryopsis
+      - Cauleraceae      # Caulerpa
+
+# Configuration metadata
+metadata:
+  version: "1.0"
+  created: "2025-05-23"
+  description: "Comprehensive plant family configuration for taxonomy database import"
+  total_families: 97  # Approximate, accounting for duplicates
+  database_target: "World Flora Online (WFO) Darwin Core Archive"
+  notes:
+    - "Some families appear in multiple categories (e.g., Araceae, Lentibulariaceae)"
+    - "Fern families may not be available in WFO as it focuses on flowering plants"
+    - "Macroalgae are not vascular plants and are unlikely to be in WFO"
+    - "Orchidaceae should already be imported and will be preserved"
