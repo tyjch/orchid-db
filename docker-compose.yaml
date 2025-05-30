@@ -6,11 +6,35 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_INITDB_ARGS: "--data-checksums"
     ports:
       - "${POSTGRES_PORT}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf:ro
     restart: unless-stopped
+    
+    mem_limit: 8g          # Hard limit: PostgreSQL can't exceed 4GB
+    mem_reservation: 4g    # Soft limit: Docker tries to keep it under 2GB
+    memswap_limit: 8g      # Total memory + swap limit
+    cpus: '2.0'            # Limit to 2 CPU cores
+    command: >
+      postgres
+      -c shared_buffers=1GB
+      -c work_mem=64MB
+      -c maintenance_work_mem=256MB
+      -c effective_cache_size=2GB
+      -c checkpoint_completion_target=0.9
+      -c wal_buffers=16MB
+      -c max_wal_size=2GB
+      -c min_wal_size=256MB
+      -c log_statement=none
+      -c log_min_duration_statement=5000
+      -c max_connections=50
+      -c autovacuum=on
+      -c autovacuum_max_workers=3
+      -c autovacuum_vacuum_scale_factor=0.1
+      -c autovacuum_analyze_scale_factor=0.05
 
 volumes:
   postgres_data:
