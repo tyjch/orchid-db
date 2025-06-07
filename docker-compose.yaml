@@ -11,7 +11,6 @@ services:
       - "${POSTGRES_PORT}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./postgresql.conf:/etc/postgresql/postgresql.conf:ro
     restart: unless-stopped
     
     mem_limit: 8g          # Hard limit: PostgreSQL can't exceed 4GB

@@ -1,0 +1,95 @@
+# models/sources.yml
+version: 2
+
+sources:
+  - name: raw
+    description: "Raw taxonomy data loaded from external sources"
+    tables:
+      - name: wfo_taxonomy
+        description: "World Flora Online taxonomy data"
+        columns:
+          - name: taxonid
+            description: "WFO taxon identifier"
+            tests:
+              - not_null
+              - unique
+          - name: scientificname
+            description: "Scientific name of the taxon"
+            tests:
+              - not_null
+          - name: taxonrank
+            description: "Taxonomic rank (species, genus, family, etc.)"
+          - name: taxonomicstatus
+            description: "Status (Accepted, Synonym, etc.)"
+          - name: parentnameusageid
+            description: "Parent taxon ID for hierarchy"
+          - name: family
+            description: "Family name"
+          - name: genus
+            description: "Genus name"
+
+      - name: gbif_taxonomy  
+        description: "GBIF Backbone Taxonomy data"
+        columns:
+          - name: taxonID
+            description: "GBIF taxon key"
+            tests:
+              - not_null
+              - unique
+          - name: canonicalName
+            description: "Canonical scientific name"
+          - name: scientificName
+            description: "Full scientific name with authorship"
+          - name: taxonRank
+            description: "Taxonomic rank"
+          - name: taxonomicStatus
+            description: "Taxonomic status"
+          - name: parentNameUsageID
+            description: "Parent taxon ID"
+          - name: kingdom
+            description: "Kingdom name"
+          - name: family
+            description: "Family name"
+          - name: genus
+            description: "Genus name"
+
+      - name: wiz_species
+        description: "OrchidWiz species data"
+        columns:
+          - name: Species
+            description: "OrchidWiz species ID (primary key)"
+            tests:
+              - not_null
+              - unique
+          - name: Genus
+            description: "Genus name"
+            tests:
+              - not_null
+          - name: SpeciesName
+            description: "Species epithet"
+
+      - name: wiz_genera
+        description: "OrchidWiz genera classification data"
+        columns:
+          - name: Genus
+            description: "Genus name (primary key)"
+            tests:
+              - not_null
+              - unique
+          - name: Subfamily
+            description: "Orchid subfamily"
+          - name: Tribe
+            description: "Orchid tribe"
+          - name: Subtribe
+            description: "Orchid subtribe"
+
+      - name: wiz_classifications
+        description: "OrchidWiz genera classification data"
+      
+      - name: wiz_infras
+        description: "Infraspecific varieties, forms, and subspecies of orchids"
+      
+      - name: wiz_species_names
+        description: "More data about species"
+        
+        

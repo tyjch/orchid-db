@@ -2,5 +2,11 @@
 .env
 .vscode
 datasets/*
+dbt/seeds/*
 old
 src
+target/
+dbt_packages/
+logs/
+.pytest_cache
+dbt_internal_packages/

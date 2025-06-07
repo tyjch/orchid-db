@@ -1,6 +1,8 @@
 psycopg>=3.1.0
+dbt-postgres>=1.9.0
+dbt-duckdb>=1.9.3
+loguru>=0.7.0
 python-dotenv>=1.0.0
 pyyaml>=6.0
 metaflow>=2.8.0
 pandas>=2.0.0
-loguru>=0.7.0

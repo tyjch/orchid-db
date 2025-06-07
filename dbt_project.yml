@@ -1,0 +1,16 @@
+name: 'orchid_db'
+version: '1.0.0'
+
+profile: 'orchid_db'
+
+model-paths    : ["dbt/models"]
+analysis-paths : ["dbt/analyses"]
+test-paths     : ["dbt/tests"]
+seed-paths     : ["dbt/seeds"]
+macro-paths    : ["dbt/macros"]
+snapshot-paths : ["dbt/snapshots"]
+
+clean-targets:         
+  - "target"
+  - "dbt_packages"
+
