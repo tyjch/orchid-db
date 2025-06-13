@@ -1,6 +1,6 @@
 {{
   config(
-    materialized='table'
+    materialized = 'table'
   )
 }}
 
@@ -143,7 +143,7 @@ final as (
         null as accepted_id,  -- Could link synonyms to accepted names
         null as original_id,
         
-        -- Scientific name construction with standardized formatting
+       
         case 
             when g."Name" is not null then 
                 case 
@@ -193,11 +193,11 @@ final as (
                 end
         end as name,
         
-        -- Name components
+        
         t.species_epithet as specific_name,
         t.infraspecific_epithet as infra_name,
         
-        -- Taxonomic hierarchy from genera + classifications
+        
         'Plantae' as kingdom,
         'Tracheophyta' as phylum,
         'Liliopsida' as class,
@@ -212,7 +212,7 @@ final as (
         
         -- Classification and status
         t.determined_rank as rank,
-        'accepted' as taxonomic_status,  -- Simplified since OrchidWiz is a curated list
+        'accepted' as taxonomic_status,
         'valid' as nomenclatural_status,
         
         -- External identifiers

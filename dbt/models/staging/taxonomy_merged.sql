@@ -1,6 +1,7 @@
+-- models/staging/taxonomy_merged.sql
 {{
   config(
-    materialized='view'
+    materialized = 'table'
   )
 }}
 
@@ -104,7 +105,52 @@ unified as (
         data_source,
         section
     from orchidwiz_data
+),
+
+normalized as (
+    select
+        id,
+        parent_id,
+        accepted_id,
+        original_id,
+        
+        -- Normalize botanical abbreviations and clean name
+        {{ normalize_botanical_names('name') }} as name,
+        
+        specific_name,
+        infra_name,
+        kingdom,
+        phylum,
+        class,
+        "order",
+        family,
+        subfamily,
+        tribe,
+        subtribe,
+        genus,
+        
+        -- Extract subgenus from name if not already populated
+        coalesce(
+            subgenus,
+            {{ extract_taxonomic_rank('name', 'subg') }}
+        ) as subgenus,
+        
+        generic_name,
+        rank,
+        taxonomic_status,
+        nomenclatural_status,
+        ipni_id,
+        tpl_id,
+        data_source,
+        
+        -- Extract section from name if not already populated
+        coalesce(
+            section,
+            {{ extract_taxonomic_rank('name', 'sect') }}
+        ) as section
+        
+    from unified
 )
 
-select * from unified
+select * from normalized
 order by name, data_source

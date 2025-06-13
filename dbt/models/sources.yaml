@@ -3,7 +3,7 @@ version: 2
 
 sources:
   - name: raw
-    description: "Raw taxonomy data loaded from external sources"
+    description: "Raw data loaded from external sources"
     tables:
       - name: wfo_taxonomy
         description: "World Flora Online taxonomy data"
@@ -27,7 +27,6 @@ sources:
             description: "Family name"
           - name: genus
             description: "Genus name"
-
       - name: gbif_taxonomy  
         description: "GBIF Backbone Taxonomy data"
         columns:
@@ -52,7 +51,6 @@ sources:
             description: "Family name"
           - name: genus
             description: "Genus name"
-
       - name: wiz_species
         description: "OrchidWiz species data"
         columns:
@@ -67,7 +65,6 @@ sources:
               - not_null
           - name: SpeciesName
             description: "Species epithet"
-
       - name: wiz_genera
         description: "OrchidWiz genera classification data"
         columns:
@@ -82,14 +79,11 @@ sources:
             description: "Orchid tribe"
           - name: Subtribe
             description: "Orchid subtribe"
-
       - name: wiz_classifications
         description: "OrchidWiz genera classification data"
-      
       - name: wiz_infras
         description: "Infraspecific varieties, forms, and subspecies of orchids"
-      
       - name: wiz_species_names
         description: "More data about species"
-        
+
         

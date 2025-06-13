@@ -637,11 +637,11 @@ def insert_source(key: str, path: str, filter_condition: str = None):
 
 if __name__ == "__main__":
     paths = {
-        #'wfo_taxonomy': r'datasets\wfo\wfo.csv',
-        #'gbif_taxonomy': r'datasets\gbif\backbone\Taxon.tsv', 
+        'wfo_taxonomy': r'datasets\wfo\wfo.csv',
+        'gbif_taxonomy': r'datasets\gbif\backbone\Taxon.tsv', 
         #'gbif_occurences': r'datasets\gbif\occurences\occurences.csv',
-        #'wiz_species': r'datasets\wiz\AcceptedSpecies.csv',
-        #'wiz_genera' : r'datasets\wiz\XGenera.csv',
+        'wiz_species': r'datasets\wiz\AcceptedSpecies.csv',
+        'wiz_genera' : r'datasets\wiz\XGenera.csv',
         'wiz_classifications' : r'datasets\wiz\Classifications.csv',
         'wiz_infras' : r'datasets\wiz\Infras.csv',
         'wiz_species_names' : r'datasets\wiz\SpeciesNames.csv'

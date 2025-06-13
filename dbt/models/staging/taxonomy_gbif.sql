@@ -1,11 +1,11 @@
 {{
   config(
-    materialized='table'
+    materialized = 'table'
   )
 }}
 
 with source_data as (
-    select * from {{ source('raw', 'gbif_taxonomy') }}
+    select * from {{ source('raw', 'taxonomy_gbif') }}
 ),
 
 final as (

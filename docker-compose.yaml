@@ -13,27 +13,42 @@ services:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
     
-    mem_limit: 8g          # Hard limit: PostgreSQL can't exceed 4GB
-    mem_reservation: 4g    # Soft limit: Docker tries to keep it under 2GB
-    memswap_limit: 8g      # Total memory + swap limit
-    cpus: '2.0'            # Limit to 2 CPU cores
+    mem_limit: 24g
+    mem_reservation: 16g
+    memswap_limit: 32g
+    cpus: '7.0'
+    
     command: >
       postgres
-      -c shared_buffers=1GB
-      -c work_mem=64MB
-      -c maintenance_work_mem=256MB
-      -c effective_cache_size=2GB
+      -c shared_buffers=8GB
+      -c work_mem=512MB
+      -c maintenance_work_mem=4GB
+      -c effective_cache_size=24GB
+      -c max_parallel_workers_per_gather=6
+      -c max_parallel_workers=14
+      -c max_parallel_maintenance_workers=6
+      -c max_worker_processes=16
       -c checkpoint_completion_target=0.9
-      -c wal_buffers=16MB
-      -c max_wal_size=2GB
-      -c min_wal_size=256MB
+      -c wal_buffers=256MB
+      -c max_wal_size=8GB
+      -c min_wal_size=2GB
       -c log_statement=none
-      -c log_min_duration_statement=5000
-      -c max_connections=50
+      -c log_min_duration_statement=30000
+      -c max_connections=100
       -c autovacuum=on
-      -c autovacuum_max_workers=3
-      -c autovacuum_vacuum_scale_factor=0.1
-      -c autovacuum_analyze_scale_factor=0.05
+      -c autovacuum_max_workers=6
+      -c autovacuum_vacuum_scale_factor=0.05
+      -c autovacuum_analyze_scale_factor=0.02
+      -c random_page_cost=1.1
+      -c effective_io_concurrency=300
+      -c temp_buffers=256MB
+      -c hash_mem_multiplier=3.0
+      -c enable_partitionwise_join=on
+      -c enable_partitionwise_aggregate=on
+      -c jit=on
+      -c max_locks_per_transaction=256
+      -c deadlock_timeout=5s
+      -c synchronous_commit=off
 
 volumes:
   postgres_data:

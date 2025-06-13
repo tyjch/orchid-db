@@ -1,6 +1,6 @@
 {{
   config(
-    materialized='table'
+    materialized = 'table'
   )
 }}
 
@@ -28,7 +28,6 @@ final as (
         genus,
         subgenus,
         null as generic_name,
-        -- Classification and status
         taxonrank as rank,
         case 
             when upper(taxonomicstatus) = 'ACCEPTED' then 'accepted'
