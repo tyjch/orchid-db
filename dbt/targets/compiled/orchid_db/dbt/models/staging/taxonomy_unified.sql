@@ -1,11 +1,7 @@
-{{
-  config(
-    materialized = 'table'
-  )
-}}
+
 
 with merged_data as (
-    select * from {{ ref('taxonomy_merged') }}
+    select * from "orchid-db"."public"."taxonomy_merged"
 ),
 
 unified as (

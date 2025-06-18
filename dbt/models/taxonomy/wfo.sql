@@ -1,11 +1,21 @@
-{{
-  config(
-    materialized = 'table'
-  )
-}}
-
 with source_data as (
     select * from {{ source('raw', 'wfo_taxonomy') }}
+),
+
+-- Add deduplication step
+deduplicated as (
+    select *,
+        row_number() over (
+            partition by scientificname 
+            order by 
+                case when taxonid like 'wfo-0000%' then 1 else 2 end,  -- Prefer WCS
+                created desc  -- Then by most recent
+        ) as rn
+    from source_data
+    where taxonid is not null
+        and scientificname is not null
+        and trim(scientificname) != ''
+        and taxonomicstatus = 'Accepted'
 ),
 
 final as (
@@ -54,10 +64,8 @@ final as (
         tplid as tpl_id,
         'WFO' as data_source,
         current_timestamp as dbt_loaded_at
-    from source_data
-    where taxonid is not null
-        and scientificname is not null
-        and trim(scientificname) != ''
+    from deduplicated
+    where rn = 1  -- Only keep the first (preferred) record for each name
 )
 
 select * from final

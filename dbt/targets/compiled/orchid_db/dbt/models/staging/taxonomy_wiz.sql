@@ -1,23 +1,19 @@
-{{
-  config(
-    materialized = 'table'
-  )
-}}
+
 
 with species_names_data as (
-    select * from {{ source('raw', 'wiz_species_names') }}
+    select * from "orchid-db"."raw"."wiz_species_names"
 ),
 
 genera_data as (
-    select * from {{ source('raw', 'wiz_genera') }}
+    select * from "orchid-db"."raw"."wiz_genera"
 ),
 
 classifications_data as (
-    select * from {{ source('raw', 'wiz_classifications') }}
+    select * from "orchid-db"."raw"."wiz_classifications"
 ),
 
 infras_data as (
-    select * from {{ source('raw', 'wiz_infras') }}
+    select * from "orchid-db"."raw"."wiz_infras"
 ),
 
 -- Main species and varieties from SpeciesNames (primary source)

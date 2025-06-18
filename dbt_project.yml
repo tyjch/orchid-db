@@ -14,3 +14,58 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
+models:
+  orchid_db:
+    +materialized: table
+    taxonomy:
+      +schema: taxonomy
+    crosswalk:
+      +schema: crosswalk
+
+vars:
+  taxonomy:
+    ranks:
+      all:
+        - "kingdom"
+        - "phylum"
+        - "class"
+        - "order"
+        - "family"
+        - "subfamily"
+        - "tribe"
+        - "subtribe"
+        - "genus"
+        - "subgenus"
+        - "section"
+        - "species"
+        - "subspecies"
+        - "variety"
+        - "form"
+      specific:
+        - "species"
+        - "subspecies"
+        - "variety"
+        - "form"
+      infraspecific:
+        - "subspecies"
+        - "variety"
+        - "form"
+    status:
+      taxonomic:
+        - "accepted"
+        - "synonym"
+        - "doubtful"
+        - "unchecked"
+      nomenclatural:
+        - "valid"
+        - "conserved"
+        - "superfluous"
+        - "invalid"
+        - "illegitimate"
+        - "rejected"
+  abbreviations:
+    infraspecific: 
+      - "ssp."
+      - "f."
+      - "var."
+

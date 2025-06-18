@@ -1,20 +1,16 @@
 -- models/staging/taxonomy_merged.sql
-{{
-  config(
-    materialized = 'table'
-  )
-}}
+
 
 with wfo_data as (
-    select * from {{ ref('taxonomy_wfo') }}
+    select * from "orchid-db"."public"."taxonomy_wfo"
 ),
 
 gbif_data as (
-    select * from {{ ref('taxonomy_gbif') }}
+    select * from "orchid-db"."public_taxonomy"."taxonomy_gbif"
 ),
 
 orchidwiz_data as (
-    select * from {{ ref('taxonomy_wiz') }}
+    select * from "orchid-db"."public"."taxonomy_wiz"
 ),
 
 unified as (
@@ -115,7 +111,21 @@ normalized as (
         original_id,
         
         -- Normalize botanical abbreviations and clean name
-        {{ normalize_botanical_names('name') }} as name,
+        
+    REGEXP_REPLACE(
+        REGEXP_REPLACE(
+            REGEXP_REPLACE(
+                REGEXP_REPLACE(
+                    name,
+                    ' subsp\. ', ' ssp. ', 'g'
+                ),
+                ' fo\. ', ' f. ', 'g'
+            ),
+            ' sect\. [A-Z][a-z]*', '', 'g'
+        ),
+        ' subg\. [A-Z][a-z]*', '', 'g'
+    )
+ as name,
         
         specific_name,
         infra_name,
@@ -132,7 +142,13 @@ normalized as (
         -- Extract subgenus from name if not already populated
         coalesce(
             subgenus,
-            {{ extract_taxonomic_rank('name', 'subg') }}
+            
+    CASE 
+        WHEN name ~ ' subg\. [A-Z][a-z]*'
+        THEN substring(name, ' subg\. ([A-Z][a-z]*)')
+        ELSE NULL
+    END
+
         ) as subgenus,
         
         generic_name,
@@ -146,7 +162,13 @@ normalized as (
         -- Extract section from name if not already populated
         coalesce(
             section,
-            {{ extract_taxonomic_rank('name', 'sect') }}
+            
+    CASE 
+        WHEN name ~ ' sect\. [A-Z][a-z]*'
+        THEN substring(name, ' sect\. ([A-Z][a-z]*)')
+        ELSE NULL
+    END
+
         ) as section
         
     from unified

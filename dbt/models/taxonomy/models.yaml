@@ -1,0 +1,17 @@
+models:
+  - name: gbif
+    columns:
+      - name: id
+        tests: 
+          - unique
+          - not null
+      - name: name
+        tests:
+          - not null
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - generic_name
+            - specific_name
+            - infra_name
+            - rank
